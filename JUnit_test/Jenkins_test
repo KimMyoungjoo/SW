@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Build started'
+                sh 'find . -name "*.java" > java-files.txt'
+                sh 'mkdir -p build-output'
+                sh 'echo "Build success" > build-output/result.txt'
+            }
+        }
+    }
+
+    post {
+        success {
+            sh 'echo "Jenkins build success" > build-success.txt'
+            archiveArtifacts artifacts: 'build-output/result.txt, build-success.txt', fingerprint: true
+        }
+    }
+}
