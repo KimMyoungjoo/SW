@@ -1,0 +1,10 @@
+ // 학생 제거 테스트
+    @Test
+    @Order(2)
+    void testRemoveStudent() {
+
+        manager.addStudent("Lee");
+        manager.removeStudent("Lee");
+
+        assertFalse(manager.hasStudent("Lee"));
+    }
