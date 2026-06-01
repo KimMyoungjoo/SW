@@ -19,10 +19,15 @@ class StudentManagerTest {
         manager = new StudentManager();
     }
     
+    // 학생 추가 테스트
     @Test
-    void testInit() {
-        assertNotNull(manager);
-    }   
+    @Order(1)
+    void testAddStudent() {
+
+        manager.addStudent("Kim");
+
+        assertTrue(manager.hasStudent("Kim"));
+    }
     
     // 존재하지 않는 학생 제거 예외 테스트
     @Test
