@@ -22,6 +22,15 @@ class StudentManagerTest {
     @Test
     void testInit() {
         assertNotNull(manager);
-    }
+    }   
+    
+    // 존재하지 않는 학생 제거 예외 테스트
+    @Test
+    @Order(4)
+    void testRemoveNonExistingStudent() {
 
+        assertThrows(IllegalArgumentException.class, () -> {
+            manager.removeStudent("Choi");
+        });
+    }
 }
