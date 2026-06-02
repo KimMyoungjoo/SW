@@ -29,6 +29,17 @@ class StudentManagerTest {
         assertTrue(manager.hasStudent("Kim"));
     }
     
+    // 학생 제거 테스트
+    @Test
+    @Order(2)
+    void testRemoveStudent() {
+
+        manager.addStudent("Lee");
+        manager.removeStudent("Lee");
+
+        assertFalse(manager.hasStudent("Lee"))
+    }
+    
  // 중복 학생 추가 예외 테스트
     @Test
     @Order(3)
