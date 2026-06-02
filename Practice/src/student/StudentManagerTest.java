@@ -29,6 +29,18 @@ class StudentManagerTest {
         assertTrue(manager.hasStudent("Kim"));
     }
     
+ // 중복 학생 추가 예외 테스트
+    @Test
+    @Order(3)
+    void testDuplicateStudent() {
+
+        manager.addStudent("Park");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            manager.addStudent("Park");
+        });
+    }
+    
     // 존재하지 않는 학생 제거 예외 테스트
     @Test
     @Order(4)
