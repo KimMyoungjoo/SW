@@ -37,7 +37,7 @@ class StudentManagerTest {
         manager.addStudent("Lee");
         manager.removeStudent("Lee");
 
-        assertFalse(manager.hasStudent("Lee"))
+        assertFalse(manager.hasStudent("Lee"));
     }
     
  // 중복 학생 추가 예외 테스트
